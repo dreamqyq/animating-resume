@@ -10,6 +10,7 @@ var code = `/*
 *{transition:all .3s;}
 /* 白色背景太单调了，我们来点背景 */
 body{background:#1E1E1E;color:#fff;}
+#content > .token{color:#fff;}
 /* 文字离边框太近了 */
 
 /* 为代码添加高亮效果 */
@@ -31,7 +32,7 @@ function writeCode(preCode,code,callback){
       window.clearInterval(timer)
       callback()
     }
-  },10)
+  },50)
 }
 function fn(){
   console.log('写完啦')
