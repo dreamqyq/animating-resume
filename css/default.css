@@ -1,5 +1,14 @@
 *{margin:0;padding:0;font-size:16px;}
+html,body{height:80vh;}
 .token.comment,
 .token.selector,
 .token.punctuation,
 .token.property{ color:#000; }
+@keyframes breath{
+  0%{
+    box-shadow: 0 0 10px 5px rgba(255,255,255,1)
+  }
+  100%{
+    box-shadow: 0 0 10px 5px rgba(255,255,255,0.2)
+  }
+}
