@@ -43,6 +43,8 @@ html{
   transform: rotateY(10deg) translateZ(-100px) ;
 }
 /* 然后我需要一张白纸来介绍我自己 */
+
+/* 好了，接下来我要开始写简历了 */
 `
 let code2 = `
 .paper{
@@ -58,10 +60,57 @@ let code2 = `
   transform: rotateY(-10deg) translateZ(-100px) ;
 }  
 `
+let markdown = `
+# 自我介绍
+我叫 XXX
+1990 年 1 月出生
+XXX 学校毕业
+自学前端半年
+希望应聘前端开发岗位
+# 技能介绍
+熟悉 JavaScript CSS
+# 项目介绍
+1. XXX 轮播
+2. XXX 简历
+3. XXX 画板
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+# 联系方式
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+`
 writeCode('',code1,createPaper)
 function writeCode(preCode,code,callback){
-  console.log('我被调用了')
   let n = 0 
+  let content = document.querySelector('#content')
+  let style = document.querySelector('#style')
   preCode = preCode || ''
   let timer = setInterval(function(){
     n += 1
@@ -82,4 +131,18 @@ function createPaper(){
 }
 function fn3(){
   console.log('code2写完啦')
+  writeMarkdown(markdown)
+}
+function writeMarkdown(markdown,callback){
+  let n = 0 
+  let paper = document.querySelector('.paper')
+  let timer = setInterval(function(){
+    n += 1
+    paper.innerHTML = Prism.highlight(markdown.substring(0,n), Prism.languages.markdown, 'markdown')
+    paper.scrollTop = paper.scrollHeight
+    if(n >= markdown.length){
+      window.clearInterval(timer)
+      callback && callback.call()
+    }
+  },0)
 }
