@@ -8,7 +8,9 @@ html,body{height:80vh;}
   0%{ box-shadow: 0 0 10px 5px rgba(255,255,255,1) }
   100%{ box-shadow: 0 0 10px 5px rgba(255,255,255,0.2) }
 }
-#paper{ color:#000; transition:opacity 2s; }
+#paper{ color:#000;}
+#paper > .paperContent,
+#paper > .markdown-body{ transition:opacity 1s; }
 #paper > .paperContent.deactive{ opacity:0; }
 #paper > .markdown-body{ opacity:0; }
 #paper > .markdown-body.active{ opacity:1; }

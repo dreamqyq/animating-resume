@@ -39,7 +39,7 @@ html{
 }
 #content {
   width:40vw;
-  position: fixed; left: 0; top: 0;z-index:1;
+  position: fixed; left: 0; top: 0;
   transform: rotateY(10deg) translateZ(-100px);
 }
 
@@ -65,9 +65,31 @@ let code2 = `
 let code3 = `
 /* 写完了，emmmmmm，好像哪里不对 */
 /* 哦对了，这个简历是markdown格式的 */
-/* 我需要把它翻译成HTML并更改一下样式 */
+/* 我需要把它翻译成HTML */
 `
 let code4 = `
+/* 然后再修改一下html的样式 */
+.markdown-body h1{
+  display: inline-block;
+  border-bottom: 1px solid;
+  margin: 1em 0 .5em;
+}
+.markdown-body ul,ol,li{
+  list-style: none;
+}
+.markdown-body ul> li::before{
+  content: '•';
+  margin-right: .5em;
+}
+.markdown-body ol {
+  counter-reset: section;
+}
+.markdown-body ol li::before {
+  counter-increment: section;
+  content: counters(section, ".") " ";
+  margin-right: .5em;
+}
+
 /* 好啦，全部完成 */
 /* 这就是我的会动的简历 */
 /* 谢谢观看 */
@@ -170,8 +192,9 @@ function convertMarkdownToHtml(callback){
   preMarkdown.classList.add('deactive')
   preMarkdown.addEventListener('transitionend',()=>{
     preMarkdown.replaceWith(markdownBody)
-    markdownBody.classList.add('active')
   })
-
+  setTimeout(()=>{
+    markdownBody.classList.add('active')
+  },1100)
   callback && callback.call()
 }
