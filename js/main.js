@@ -124,7 +124,7 @@ let markdown = `
 - QQ：821293167
 - 微信： Dreamqyq
 - Email：qyqdream@foxmail.com 
-- 手机：13707203193
+- 手机：137XXXXXXXX
 
 # 链接
 - [Github链接](https://github.com/dreamqyq)
